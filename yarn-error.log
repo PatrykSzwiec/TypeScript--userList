@@ -1,0 +1,36 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\patry\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js init
+
+PATH: 
+  C:\Users\patry\bin;E:\IT\Kodilla\Git\mingw64\bin;E:\IT\Kodilla\Git\usr\local\bin;E:\IT\Kodilla\Git\usr\bin;E:\IT\Kodilla\Git\usr\bin;E:\IT\Kodilla\Git\mingw64\bin;E:\IT\Kodilla\Git\usr\bin;C:\Users\patry\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet;E:\IT\Kodilla\Git\cmd;%NVM_HOME%;%NVM_SYMLINK%;C:\Users\patry\AppData\Local\Microsoft\WindowsApps;E:\IT\Kodilla\Microsoft VS Code\bin;C:\Program Files (x86)\BrowserStackLocal;C:\Users\patry\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\patry\AppData\Roaming\npm;E:\IT\Kodilla\Git\usr\bin\vendor_perl;E:\IT\Kodilla\Git\usr\bin\core_perl
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.20.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: Can't answer a question unless a user TTY
+      at ConsoleReporter.question (C:\Users\patry\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:92864:59)
+      at Object.<anonymous> (C:\Users\patry\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:85054:38)
+      at Generator.next (<anonymous>)
+      at step (C:\Users\patry\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:310:30)
+      at C:\Users\patry\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "UserList",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
