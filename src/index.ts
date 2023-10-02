@@ -5,6 +5,7 @@ enum Action {
   List = "list",
   Add = "add",
   Remove = "remove",
+  Edit = "edit",
   Quit = "quit"
 }
 
@@ -38,13 +39,32 @@ const startApp = () => {
           const user = await inquirer.prompt([{
             name: 'name',
             type: 'input',
-            message: 'Enter name',
+            message: 'Enter name : ',
           }, {
             name: 'age',
             type: 'number',
-            message: 'Enter age',
+            message: 'Enter age : ',
           }]);
           users.add(user);
+          startApp();
+          break;
+
+        case Action.Edit:
+          const editIndex = await inquirer.prompt([{
+            name: 'index',
+            type: 'number',
+            message: 'Enter the index of the user to edit (0, 1, 2, ...) : ',
+          }]);
+          const updatedUserData = await inquirer.prompt([{
+            name: 'name',
+            type: 'input',
+            message: 'Enter new name : ',
+          }, {
+            name: 'age',
+            type: 'number',
+            message: 'Enter new age : ',
+          }]);
+          users.edit(editIndex.index, { name: updatedUserData.name, age: updatedUserData.age });
           startApp();
           break;
 
@@ -52,7 +72,7 @@ const startApp = () => {
           const name = await inquirer.prompt([{
             name: 'name',
             type: 'input',
-            message: 'Enter name',
+            message: 'Enter name : ',
           }]);
           users.remove(name.name);
           startApp();
@@ -134,6 +154,15 @@ class UsersData {
 		}
 	}
 
+  public edit(index: number, updatedUser: User) {
+    if (index >= 0 && index < this.data.length) {
+      this.data[index] = updatedUser;
+      Message.showColorized(MessageVariant.Success, 'User updated!');
+    } else {
+      Message.showColorized(MessageVariant.Error, 'Invalid index. User not found...');
+    }
+  }
+
 	public remove(name: string) {
 		const index = this.data.findIndex(user => user.name === name);
 		if (index !== -1) {
@@ -157,6 +186,7 @@ Message.showColorized(MessageVariant.Info, "Available actions");
 console.log("\n");
 console.log("list – show all users");
 console.log("add – add a new user to the list");
+console.log("edit – edit an existing user");
 console.log("remove – remove a user from the list");
 console.log("quit – quit the app");
 console.log("\n");
