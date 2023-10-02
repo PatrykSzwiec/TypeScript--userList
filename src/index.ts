@@ -6,6 +6,7 @@ enum Action {
   Add = "add",
   Remove = "remove",
   Edit = "edit",
+  Help = "help",
   Quit = "quit"
 }
 
@@ -17,6 +18,17 @@ enum MessageVariant {
   Success = "success",
   Error = "error",
   Info = "info",
+}
+
+function displayAvailableCommands() {
+  console.log("\nAvailable commands:");
+  console.log("list – show all users");
+  console.log("add – add a new user to the list");
+  console.log("edit – edit an existing user");
+  console.log("remove – remove a user from the list");
+  console.log("help – display available commands");
+  console.log("quit – quit the app");
+  console.log("\n");
 }
 
 const startApp = () => {
@@ -32,6 +44,11 @@ const startApp = () => {
       switch (answers.action) {
         case Action.List:
           users.showAll();
+          startApp();
+          break;
+
+        case Action.Help:
+          displayAvailableCommands();
           startApp();
           break;
 
@@ -85,7 +102,7 @@ const startApp = () => {
         default:
           Message.showColorized(
             MessageVariant.Error,
-            'Command not found. Please enter a valid command (add/list/remove/quit).'
+            'Command not found. Use command "help" to see all available commands.'
           );
           startApp();
           break;
@@ -188,6 +205,7 @@ console.log("list – show all users");
 console.log("add – add a new user to the list");
 console.log("edit – edit an existing user");
 console.log("remove – remove a user from the list");
+console.log("help – display available commands");
 console.log("quit – quit the app");
 console.log("\n");
 
