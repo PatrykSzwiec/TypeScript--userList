@@ -33,6 +33,7 @@ const startApp = () => {
           users.showAll();
           startApp();
           break;
+
         case Action.Add:
           const user = await inquirer.prompt([{
             name: 'name',
@@ -46,6 +47,7 @@ const startApp = () => {
           users.add(user);
           startApp();
           break;
+
         case Action.Remove:
           const name = await inquirer.prompt([{
             name: 'name',
@@ -55,6 +57,7 @@ const startApp = () => {
           users.remove(name.name);
           startApp();
           break;
+
         case Action.Quit:
           Message.showColorized(MessageVariant.Info, "Bye bye !");
           return;
@@ -84,7 +87,7 @@ class Message {
 		this.content = this.content.charAt(0).toUpperCase() + this.content.slice(1).toLowerCase();
 	}
 
- toUpperCase() {
+  toUpperCase() {
 		this.content = this.content.toUpperCase();
 	}
 
